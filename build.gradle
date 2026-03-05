@@ -1,81 +1,247 @@
-plugins {
+//plugins {
+//
+//	id 'org.springframework.boot' version '3.4.5'
+//	id 'io.spring.dependency-management' version '1.1.7'
+//	id 'java'
+//	//id 'org.graalvm.buildtools.native' version '0.10.6'
+//
+//	id "com.github.spotbugs" version "6.0.18"
+//}
+//
+//group = 'com.dtt'
+//version = '0.0.1-SNAPSHOT'
+//
+////java {
+////sourceCompatibility = JavaVersion.VERSION_21
+////targetCompatibility = JavaVersion.VERSION_21
+////}
+//java {
+//	toolchain {
+//		languageVersion = JavaLanguageVersion.of(21)
+//	}
+//}
+//repositories {
+//	mavenCentral()
+//}
+//
+//dependencies {
+//	// Local JAR
+//	implementation files('DAESLogIntegrity.jar')
+//	implementation 'commons-fileupload:commons-fileupload:1.6.0'
+//	implementation 'io.sentry:sentry:7.14.0'
+//
+//	// Security Fixes: Logback for CVE-2025-11226 & CVE-2026-1225
+//	implementation 'ch.qos.logback:logback-classic:1.5.25'
+//	implementation 'ch.qos.logback:logback-core:1.5.25'
+//
+//	// Security Fix: Commons-IO for GHSA-72hv-8253-57qq
+//	implementation 'commons-io:commons-io:2.18.0'
+//
+//	// Spring Boot Starters
+//	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//	implementation('org.springframework.boot:spring-boot-starter-web') {
+//		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+//	}
+//	implementation 'org.springframework.boot:spring-boot-starter-undertow'
+//	implementation 'org.springframework.boot:spring-boot-starter-validation'
+//	implementation 'org.springframework.kafka:spring-kafka'
+//
+//	// Database
+//	implementation 'org.postgresql:postgresql:42.7.5'
+//
+//	// Apache Utils & HTTP Clients
+//	implementation 'org.apache.httpcomponents:httpclient:4.5.14'
+//	implementation 'org.apache.httpcomponents.client5:httpclient5:5.4.1' // Kept only the latest 5.4.1
+//
+//	// Documentation & Security Tools
+//	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
+//	spotbugsPlugins "com.h3xstream.findsecbugs:findsecbugs-plugin:1.12.0"
+//
+//	// Cloud & Vault
+//	implementation 'org.springframework.cloud:spring-cloud-starter-vault-config'
+//	implementation 'org.springframework.vault:spring-vault-core'
+//}
+//
+//tasks.withType(com.github.spotbugs.snom.SpotBugsTask).configureEach {
+//	reports {
+//		html.required.set(true)
+//		xml.required.set(false)
+//	}
+//}
+//tasks.withType(com.github.spotbugs.snom.SpotBugsTask).configureEach {
+//	ignoreFailures = true
+//}
+//
+//
+////tasks.named('test') {
+////useJUnitPlatform()
+////}
+//ext {
+//	springCloudVersion = "2024.0.0" // or the latest 2024.0.x SR release
+//}
+//dependencyManagement {
+//	imports {
+//		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+//	}
+//}
+////configurations.all {
+////	exclude group: 'commons-logging', module: 'commons-logging'
+////}
+//
+////graalvmNative {
+////	binaries {
+////		main {
+////			// Use single quotes (' ') to treat $ and | as normal text
+////			buildArgs.add('-H:IncludeResources=.*dllConfig_64\\.conf$|.*\\.so$')
+////		}
+////	}
+////}
+//
 
-	id 'org.springframework.boot' version '3.4.5'
+//	plugins {
+//
+//		id 'org.springframework.boot' version '3.5.10'
+//		id 'io.spring.dependency-management' version '1.1.7'
+//		id 'java'
+//
+//	}
+//
+//	group = 'com.dtt'
+//	version = '0.0.1-SNAPSHOT'
+//
+//	//java {
+//		//sourceCompatibility = JavaVersion.VERSION_21
+//		//targetCompatibility = JavaVersion.VERSION_21
+//	//}
+//	java {
+//		toolchain {
+//			languageVersion = JavaLanguageVersion.of(21)
+//		}
+//	}
+//	repositories {
+//		mavenCentral()
+//	}
+//	dependencies {
+//
+//		implementation files('DAESLogIntegrity.jar')
+//
+//		implementation 'commons-fileupload:commons-fileupload:1.6.0'
+//		implementation 'io.sentry:sentry:7.14.0'
+//
+//		implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+//
+//		implementation('org.springframework.boot:spring-boot-starter-web') {
+//			exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+//		}
+//
+//		implementation 'org.springframework.boot:spring-boot-starter-undertow'
+//
+//		implementation 'org.springframework.kafka:spring-kafka'
+//		implementation 'org.postgresql:postgresql:42.7.3'
+//
+//		implementation 'commons-io:commons-io:2.15.1'
+//
+//		// ✅ Keep only HttpClient 5
+//		implementation 'org.apache.httpcomponents.client5:httpclient5:5.3.1'
+//
+//		implementation 'org.apache.logging.log4j:log4j-core:2.25.3'
+//
+//		implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
+//
+//		// ✅ Fix CVE
+//		implementation 'org.apache.commons:commons-lang3:3.18.0'
+//
+//	}
+//	configurations.all {
+//		resolutionStrategy {
+//			force 'org.apache.commons:commons-lang3:3.18.0'
+//		}
+//	}
+//
+//
+//	//tasks.named('test') {
+//		//useJUnitPlatform()
+//	//}
+//	ext {
+//		springCloudVersion = "2024.0.0" // or the latest 2024.0.x SR release
+//	}
+//	dependencyManagement {
+//		imports {
+//			mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
+//		}
+//	}
+//	//configurations.all {
+//	//	exclude group: 'commons-logging', module: 'commons-logging'
+//	//}
+//
+//	//graalvmNative {
+//	//	binaries {
+//	//		main {
+//	//			// Use single quotes (' ') to treat $ and | as normal text
+//	//			buildArgs.add('-H:IncludeResources=.*dllConfig_64\\.conf$|.*\\.so$')
+//	//		}
+//	//	}
+//	//}
+//
+plugins {
+	id 'org.springframework.boot' version '3.5.10'
 	id 'io.spring.dependency-management' version '1.1.7'
 	id 'java'
-	//id 'org.graalvm.buildtools.native' version '0.10.6'
-
-	id "com.github.spotbugs" version "6.0.18"
 }
 
 group = 'com.dtt'
 version = '0.0.1-SNAPSHOT'
 
-//java {
-//sourceCompatibility = JavaVersion.VERSION_21
-//targetCompatibility = JavaVersion.VERSION_21
-//}
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(21)
 	}
 }
+
 repositories {
 	mavenCentral()
 }
 
-dependencies {
-	// Local JAR
-	implementation files('DAESLogIntegrity.jar')
-	implementation 'commons-fileupload:commons-fileupload:1.6.0'
-	implementation 'io.sentry:sentry:7.14.0'
+ext {
+	springCloudVersion = "2024.0.1"
+}
 
-	// Security Fixes: Logback for CVE-2025-11226 & CVE-2026-1225
-	implementation 'ch.qos.logback:logback-classic:1.5.25'
-	implementation 'ch.qos.logback:logback-core:1.5.25'
-
-	// Security Fix: Commons-IO for GHSA-72hv-8253-57qq
-	implementation 'commons-io:commons-io:2.18.0'
-
-	// Spring Boot Starters
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	implementation('org.springframework.boot:spring-boot-starter-web') {
-		exclude group: 'org.springframework.boot', module: 'spring-boot-starter-tomcat'
+dependencyManagement {
+	imports {
+		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
 	}
+}
+
+dependencies {
+
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-undertow'
-	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.kafka:spring-kafka'
 
-	// Database
-	implementation 'org.postgresql:postgresql:42.7.5'
+	runtimeOnly 'org.postgresql:postgresql'
 
-	// Apache Utils & HTTP Clients
-	implementation 'org.apache.httpcomponents:httpclient:4.5.14'
-	implementation 'org.apache.httpcomponents.client5:httpclient5:5.4.1' // Kept only the latest 5.4.1
-
-	// Documentation & Security Tools
-	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.5.0'
-	spotbugsPlugins "com.h3xstream.findsecbugs:findsecbugs-plugin:1.12.0"
-
-	// Cloud & Vault
 	implementation 'org.springframework.cloud:spring-cloud-starter-vault-config'
 	implementation 'org.springframework.vault:spring-vault-core'
+
+	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.6.0'
+
+	implementation 'org.apache.httpcomponents.client5:httpclient5'
+	implementation 'org.apache.commons:commons-lang3'
+//	implementation 'commons-fileupload:commons-fileupload:1.6.0'
+//	implementation 'commons-io:commons-io:2.15.1'
+	implementation 'org.apache.commons:commons-lang3:3.18.0'
+	implementation 'commons-fileupload:commons-fileupload:1.6.0'
+	implementation 'commons-io:commons-io:2.15.1'
+
+	implementation 'io.sentry:sentry:7.14.0'
+
+	implementation files('DAESLogIntegrity.jar')
 }
 
-tasks.withType(com.github.spotbugs.snom.SpotBugsTask).configureEach {
-	reports {
-		html.required.set(true)
-		xml.required.set(false)
-	}
+tasks.named('test') {
+	useJUnitPlatform()
 }
-tasks.withType(com.github.spotbugs.snom.SpotBugsTask).configureEach {
-	ignoreFailures = true
-}
-
-
-//tasks.named('test') {
-//useJUnitPlatform()
-//}
 ext {
 	springCloudVersion = "2024.0.0" // or the latest 2024.0.x SR release
 }
@@ -84,16 +250,3 @@ dependencyManagement {
 		mavenBom "org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}"
 	}
 }
-//configurations.all {
-//	exclude group: 'commons-logging', module: 'commons-logging'
-//}
-
-//graalvmNative {
-//	binaries {
-//		main {
-//			// Use single quotes (' ') to treat $ and | as normal text
-//			buildArgs.add('-H:IncludeResources=.*dllConfig_64\\.conf$|.*\\.so$')
-//		}
-//	}
-//}
-
