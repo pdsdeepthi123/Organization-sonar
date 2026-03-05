@@ -99,7 +99,7 @@ public class OrganizationPrivilegesImpl implements OrganizationPrivilegesIface {
                     organisationPrivilegesResponse);
 
         } catch (Exception e) {
-            e.printStackTrace();
+
             logger.error("{} - {} : Exception occurred during organization Privilege GET BY ID: {}",
                     CLASS, Utility.getMethodName(), e.getMessage());
             return exceptionHandlerUtil.handleException(e);
@@ -259,7 +259,7 @@ public class OrganizationPrivilegesImpl implements OrganizationPrivilegesIface {
                     updatedPrivilege);
 
         } catch (Exception e) {
-            e.printStackTrace();
+
             logger.error("{} - {} : Exception occurred during organization Privilege UPDATE: {}",
                     CLASS, Utility.getMethodName(), e.getMessage());
             return exceptionHandlerUtil.handleException(e);
@@ -275,7 +275,7 @@ public class OrganizationPrivilegesImpl implements OrganizationPrivilegesIface {
                     organisationPrivilegesRepository.getAll());
 
         } catch (Exception e) {
-            e.printStackTrace();
+
             logger.error("{} - {} : Exception occurred during organization Privilege GET ALL: {}",
                     CLASS, Utility.getMethodName(), e.getMessage());
             return exceptionHandlerUtil.handleException(e);
@@ -304,7 +304,7 @@ public class OrganizationPrivilegesImpl implements OrganizationPrivilegesIface {
                     organizationPrivileges);
 
         } catch (Exception e) {
-            e.printStackTrace();
+
             logger.error("{} - {} : Exception occurred during organization Privilege GET BY ID: {}",
                     CLASS, Utility.getMethodName(), e.getMessage());
             return exceptionHandlerUtil.handleException(e);
@@ -333,7 +333,7 @@ public class OrganizationPrivilegesImpl implements OrganizationPrivilegesIface {
                     organisationPrivilegesRepository.fetchPrivilegesByOrganisation(orgId));
 
         } catch (Exception e) {
-            e.printStackTrace();
+
             logger.error("{} - {} : Exception occurred during organization Privilege GET BY ORGANIZATION: {}",
                     CLASS, Utility.getMethodName(), e.getMessage());
             return exceptionHandlerUtil.handleException(e);
@@ -410,7 +410,7 @@ public class OrganizationPrivilegesImpl implements OrganizationPrivilegesIface {
                     savedList);
 
         } catch (Exception e) {
-            e.printStackTrace();
+
             logger.error("{} - {} : Exception occurred during organization Privilege UPDATE ORG PRIVILEGE LIST: {}",
                     CLASS, Utility.getMethodName(), e.getMessage());
             return exceptionHandlerUtil.handleException(e);
@@ -426,7 +426,7 @@ public class OrganizationPrivilegesImpl implements OrganizationPrivilegesIface {
                     privileges);
 
         } catch (Exception e) {
-            e.printStackTrace();
+
             logger.error("{} - {} : Exception occurred during organization Privilege GET NAMES: {}",
                     CLASS, Utility.getMethodName(), e.getMessage());
             return exceptionHandlerUtil.handleException(e);

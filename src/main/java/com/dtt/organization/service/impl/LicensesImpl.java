@@ -417,7 +417,7 @@ public class LicensesImpl implements LicensesIface {
             return new String(res.getResponse());
 
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			return e.getMessage();
 		}
 	}

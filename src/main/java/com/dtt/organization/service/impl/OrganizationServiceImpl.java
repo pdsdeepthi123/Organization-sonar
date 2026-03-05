@@ -788,7 +788,7 @@ public class OrganizationServiceImpl implements OrganizationIface {
 			return exceptionHandlerUtil.createSuccessResponse(Constant.API_RESPONSE_ORGANIZATION_UPDATED,
 					updateOrganizationDTO);
 		}catch (OrgnizationServiceException e) {
-			e.printStackTrace();
+
 			return exceptionHandlerUtil.handleException(e);
 		} catch (Exception e) {
 			logger.error("{} - {}: Exception occurred during organization update for UID: {}: {}", CLASS,
@@ -1136,7 +1136,7 @@ public class OrganizationServiceImpl implements OrganizationIface {
 			return apiResponse;
 
 		} catch (HttpClientErrorException e) {
-			e.printStackTrace();
+
 			logger.error("{} - {}: Exception occurred HttpStatusCodeException during document verification: {}", CLASS, Utility.getMethodName(),
 					e.getMessage(), e);
 			return exceptionHandlerUtil.handleHttpException(e);
@@ -1289,7 +1289,7 @@ public class OrganizationServiceImpl implements OrganizationIface {
 					orgPrepetryStatusDto);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			logger.error("{} - {}: Exception : {}", CLASS, Utility.getMethodName(), e.getMessage(), e);
 			return exceptionHandlerUtil.handleException(e);
 		}
@@ -1309,7 +1309,7 @@ public class OrganizationServiceImpl implements OrganizationIface {
 			logger.info("{} - {}: Organization list retrieved successfully", CLASS, Utility.getMethodName());
 			return exceptionHandlerUtil.createSuccessResponse(Constant.API_RESPONSE_ORGANIZATION_LIST, details);
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			logger.error("{} - {}: Exception occurred: {}", CLASS, Utility.getMethodName(), e.getMessage(), e);
 			return exceptionHandlerUtil.handleException(e);
 		}
@@ -1329,7 +1329,7 @@ public class OrganizationServiceImpl implements OrganizationIface {
 			logger.info("{} - {}: Organization list retrieved successfully", CLASS, Utility.getMethodName());
 			return exceptionHandlerUtil.createSuccessResponse(Constant.API_RESPONSE_ORGANIZATION_LIST, details);
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			logger.error("{} - {}: Exception occurred: {}", CLASS, Utility.getMethodName(), e.getMessage(), e);
 			return exceptionHandlerUtil.handleException(e);
 		}
@@ -1383,7 +1383,7 @@ public class OrganizationServiceImpl implements OrganizationIface {
 		} catch (Exception e) {
 			logger.error("{} - {}: Exception occurred fetching templates: {}", CLASS, Utility.getMethodName(),
 					e.getMessage(), e);
-			e.printStackTrace();
+
 			return exceptionHandlerUtil.handleException(e);
 		}
 	}
@@ -1406,7 +1406,7 @@ public class OrganizationServiceImpl implements OrganizationIface {
 		} catch (Exception e) {
 			logger.error("{} - {}: Exception occurred while fetching templates: {}", CLASS, Utility.getMethodName(),
 					e.getMessage(), e);
-			e.printStackTrace();
+
 			return exceptionHandlerUtil.handleException(e);
 		}
 	}
@@ -1426,7 +1426,7 @@ public class OrganizationServiceImpl implements OrganizationIface {
 		catch (Exception e) {
 			logger.error("{} - {}: Exception occurred while fetching templates: {}", CLASS, Utility.getMethodName(),
 					e.getMessage(), e);
-			e.printStackTrace();
+
 			return exceptionHandlerUtil.handleException(e);
 		}
 
@@ -1681,7 +1681,7 @@ public class OrganizationServiceImpl implements OrganizationIface {
 					detailsResDTOs);
 			return exceptionHandlerUtil.createSuccessResponse(Constant.API_RESPONSE_ORGANIZATION_LIST, detailsResDTOs);
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			logger.error("{} - {}: Exception occurred while fetching organization list for suid: {}: {}", CLASS,
 					methodName, suid, e.getMessage(), e);
 			return exceptionHandlerUtil.handleException(e);
@@ -1792,7 +1792,7 @@ public class OrganizationServiceImpl implements OrganizationIface {
 			}
 			return otp.toString();
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			return null;
 		}
 	}
@@ -1846,7 +1846,7 @@ public class OrganizationServiceImpl implements OrganizationIface {
 			Result result = DAESService.encryptData(s);
 			return new String(result.getResponse());
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			return e.getMessage();
 		}
 	}
@@ -2089,7 +2089,7 @@ public class OrganizationServiceImpl implements OrganizationIface {
 			return exceptionHandlerUtil.createSuccessResponse(Constant.API_RESPONSE_SIGNATORY_LIST_FOUND, orgSignatories);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			logger.error("{} - {}: Error occurred while fetching signatory list for orgUid: {}: {}", CLASS, methodName,
 					organizationUid, e.getMessage(), e);
 			return exceptionHandlerUtil.handleException(e);
@@ -2210,7 +2210,7 @@ public class OrganizationServiceImpl implements OrganizationIface {
 			return AppUtil.createApiResponse(false, errorMsg, null);
 
 		} catch (Exception e) {
-			e.printStackTrace();
+
 			logger.error("{} - {}: Error Exception while sending email to SPOC: {}: {}", CLASS,
 					methodName, spocEmail, e.getMessage(), e);
 			return exceptionHandlerUtil.handleHttpException(e);
@@ -2341,7 +2341,6 @@ public class OrganizationServiceImpl implements OrganizationIface {
 			return AppUtil.createApiResponse(true, "Organization statistics fetched successfully", stats);
 
 		} catch (Exception e) {
-			e.printStackTrace();
 			logger.error("{} - {}: Error while fetching organization stats: {}", CLASS, e.getMessage(), e);
 			return exceptionHandlerUtil.handleHttpException(e);
 		}

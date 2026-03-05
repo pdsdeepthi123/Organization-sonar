@@ -1,21 +1,19 @@
 /*
- * @copyright (DigitalTrust Technologies Private Limited, Hyderabad) 2021, 
+ * @copyright (DigitalTrust Technologies Private Limited, Hyderabad) 2021,
  * All rights reserved.
  */
 package com.dtt.organization.dto;
-
-import java.io.Serializable;
-
 /**
  * The Class RequestEntity.
+ * @param <T> the type of the post request body
  */
-public class RequestEntity<T> implements Serializable {
+public class RequestEntity<T> {
 
 	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-	/** The post request. */
-	private PostRequest postRequest;
+
+	/** The post request payload of type T. */
+	private T postRequest;
 
 	/** The transaction type. */
 	private String transactionType;
@@ -23,9 +21,9 @@ public class RequestEntity<T> implements Serializable {
 	/**
 	 * Gets the post request.
 	 *
-	 * @return the post request
+	 * @return the post request of type T
 	 */
-	public PostRequest getPostRequest() {
+	public T getPostRequest() {
 		return postRequest;
 	}
 
@@ -33,9 +31,9 @@ public class RequestEntity<T> implements Serializable {
 	 * Sets the post request.
 	 *
 	 * @param postRequest
-	 *            the new post request
+	 * the new post request of type T
 	 */
-	public void setPostRequest(PostRequest postRequest) {
+	public void setPostRequest(T postRequest) {
 		this.postRequest = postRequest;
 	}
 
@@ -52,7 +50,7 @@ public class RequestEntity<T> implements Serializable {
 	 * Sets the transaction type.
 	 *
 	 * @param transactionType
-	 *            the new transaction type
+	 * the new transaction type
 	 */
 	public void setTransactionType(String transactionType) {
 		this.transactionType = transactionType;
@@ -60,8 +58,7 @@ public class RequestEntity<T> implements Serializable {
 
 	/*
 	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
+	 * * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString() {

@@ -82,7 +82,7 @@ public class LinkedBeneficiraryWorkerThread implements Runnable {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.info("{}",e.getMessage());
 		}
 
 	}
@@ -117,7 +117,7 @@ public class LinkedBeneficiraryWorkerThread implements Runnable {
 			}
 
 		} catch (Exception e) {
-			e.printStackTrace();
+			logger.info("{}",e.getMessage());
 		}
 	}
 
