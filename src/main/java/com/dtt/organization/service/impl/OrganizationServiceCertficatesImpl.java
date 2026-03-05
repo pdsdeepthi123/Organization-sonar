@@ -426,7 +426,8 @@ public class OrganizationServiceCertficatesImpl implements OrganizationCertifica
 		postRequest.setRequestBody(logModelDTO.toString());
 		postRequest.setHashdata(logModelDTO.toString().hashCode());
 
-		RequestEntity<String> requestEntity = new RequestEntity<>();
+		// Fix applied here: changed String to PostRequest
+		RequestEntity<PostRequest> requestEntity = new RequestEntity<>();
 		requestEntity.setPostRequest(postRequest);
 		requestEntity.setTransactionType(Constant.REVOKE_CERTIFICATE);
 
